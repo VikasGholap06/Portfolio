@@ -3,722 +3,1252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vikas Gholap - Aspiring Software Engineer and Full-Stack Developer passionate about building scalable applications">
-    <meta name="keywords" content="Vikas Gholap, Software Engineer, Full-Stack Developer, Portfolio, Computer Science">
+    <meta name="description" content="Vikas Gholap is an aspiring Data Scientist and Machine Learning Engineer focused on Python, analytics, computer vision, NLP, and Android AI applications.">
+    <meta name="keywords" content="Vikas Gholap, Data Scientist, Data Science, Machine Learning, AI/ML, Python, Pandas, Power BI, NLP, Computer Vision, Android Developer">
     <meta name="author" content="Vikas Gholap">
-    <title>Vikas Gholap | Software Engineer Portfolio</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
+    <title>Vikas Gholap | Data Scientist · AI/ML & Android</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234976ad'/><text x='50%' y='62%' font-size='50' font-weight='800' fill='white' font-family='sans-serif' text-anchor='middle'>VG</text></svg>">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <!-- Subtle Background Ambience -->
+    <div class="bg-ambient-layer" aria-hidden="true">
+        <div class="ambient-glow-1"></div>
+        <div class="ambient-glow-2"></div>
+        <div class="ambient-grid"></div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="site-header" id="siteHeader">
         <div class="container nav-container">
-            <a href="#home" class="logo">
-                <span class="logo-text">Vikas<span class="gradient-text">Gholap</span></span>
+            <a href="#home" class="brand-logo" aria-label="Vikas Gholap Home">
+                <span class="brand-monogram">VG</span>
+                <span>Vikas<span class="gradient-text">Gholap</span></span>
             </a>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="#home" class="nav-item active">Home</a>
+                <a href="#proof" class="nav-item">Proof</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#achievements" class="nav-item">Achievements</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <a href="Resume_Vikas_Gholap_DS.pdf" class="btn btn-secondary btn-sm" download aria-label="Download Resume">
+                    <i class="fas fa-file-download"></i> Resume
+                </a>
+
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+
+                <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Mobile Navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-            <div class="particles" id="particles"></div>
-            <div class="grid-lines"></div>
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+        <a href="#home" class="mobile-nav-link active">Home</a>
+        <a href="#proof" class="mobile-nav-link">Proof of Work</a>
+        <a href="#about" class="mobile-nav-link">About Me</a>
+        <a href="#projects" class="mobile-nav-link">Featured Projects</a>
+        <a href="#experience" class="mobile-nav-link">Experience</a>
+        <a href="#skills" class="mobile-nav-link">Technical Skills</a>
+        <a href="#achievements" class="mobile-nav-link">Achievements & Education</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <div class="mobile-drawer-cta">
+            <a href="Resume_Vikas_Gholap_DS.pdf" class="btn btn-primary" download>
+                <i class="fas fa-download"></i> Download Resume (PDF)
+            </a>
+            <button class="btn btn-secondary copy-email-trigger">
+                <i class="fas fa-copy"></i> Copy Email Address
+            </button>
         </div>
-        
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-greeting">Hello, I'm</p>
-                    <h1 class="hero-name">Vikas Gholap</h1>
-                    <h2 class="hero-title">
-                        <span class="gradient-text">Android Developer</span> | Full Stack Developer
-                    </h2>
-                    <p class="hero-description">
-                        Skilled in Java, Kotlin, Jetpack Compose, and Firebase, building scalable and user-centric mobile apps. 
-                        Passionate about real-time databases, API integration, and AI/ML-powered solutions. Exploring ML.
-                    </p>
-                    
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> Contact Me
-                        </a>
-                        <a href="Resume_Vikas_Gholap.pdf" class="btn btn-secondary" download>
-                            <i class="fas fa-download"></i> Download Resume
-                        </a>
-                    </div>
-                    
-                    <div class="hero-socials">
-                        <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/vikas-gholap/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vikasbgholap27@gmail.com" target="_blank" rel="noopener" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://wa.me/918857978314" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="hero-image">
-                    <div class="image-wrapper">
-                        <img src="profile.jpg" alt="Vikas Gholap" class="profile-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- About Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know more about my journey</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="about-card">
-                        <h3>Introduction</h3>
-                        <p>
-                            Hello! I'm <strong>Vikas Gholap</strong>, an Android Developer based in <strong>Maharashtra, India</strong>. 
-                            I specialize in building native Android applications using Kotlin, Java, and modern Android technologies.
-                        </p>
-                        <p>
-                            My passion lies in creating seamless mobile experiences with intuitive UI/UX. I work extensively with 
-                            Jetpack Compose for modern UI, Firebase for backend services, and REST APIs for data integration.
-                        </p>
-                        <p>
-                            I'm a <strong>1st Place Winner at the National Level Project Competition</strong> for AgeWell, a
-                            <strong>3rd Place Winner at Wings Hackathon</strong>, and a <strong>3rd Winner at Wings Innovex</strong>
-                            National Level Project Competition organized by GECA, Chhatrapati Sambhajinagar. I also hold
-                            certifications in Android Development, Soft Skills, and Power BI. I believe in writing clean,
-                            maintainable code following MVVM architecture and best practices. Exploring ML.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="about-info">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-graduation-cap"></i>
+    <main>
+        <!-- ==========================================================================
+             HERO SECTION
+             ========================================================================== -->
+        <section class="hero-section" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Hero Left: Content -->
+                    <div class="hero-content reveal-init">
+                        <div class="hero-intro-badge">
+                            <span class="status-pill">
+                                <span class="pulse-dot"></span> Open to Data Science & AI/ML Roles
+                            </span>
                         </div>
-                        <div class="info-content">
-                            <h4>Education</h4>
-                            <p><strong>B.Tech, Computer Science & Engineering</strong></p>
-                            <p><strong>With Honours in AI-ML</strong></p>
-                            <p>Government College of Engineering, Chhatrapati Sambhajinagar</p>
-                            <p class="text-muted">Pursuing CGPA: 9.187 | 2024 - 2027</p>
-                            <p style="margin-top: 0.5rem;"><strong>Diploma, Information Technology</strong></p>
-                            <p>Government Polytechnic Ambad | 92.94%</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Achievements</h4>
-                            <div class="interests-tags">
-                                <span>1st Place - National Project Competition</span>
-                                <span>3rd Place - Wings Hackathon</span>
-                                <span>3rd Winner - Wings Innovex</span>
-                                <span>Android Developer - Mountreach Solutions</span>
-                                <span>NPTEL - Soft Skills</span>
-                                <span>Simplilearn SkillUp - Power BI</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section class="skills section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Technologies and tools I work with</p>
-            </div>
-            
-            <div class="skills-grid">
-                <!-- Programming Languages -->
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Programming Languages</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" alt="Java"></div>
-                            <span>Java</span>
+                        <h1 class="hero-name">Vikas Gholap</h1>
+                        <div class="hero-subrole">
+                            Data Scientist · Machine Learning Engineer · AI/ML & Android Developer
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin"></div>
-                            <span>Kotlin</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"></div>
-                            <span>C</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"></div>
-                            <span>C++</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" alt="HTML5"></div>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" alt="CSS3"></div>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"></div>
-                            <span>PHP</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="SQL"></div>
-                            <span>SQL</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Android Development -->
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <h3>Android Development</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android"></div>
-                            <span>Android SDK</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="image.png" alt="Jetpack Compose"></div>
-                            <span>Jetpack Compose</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Coroutines"></div>
-                            <span>Kotlin Coroutines</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/color/48/module.png" alt="MVVM"></div>
-                            <span>MVVM</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="xml.png" alt="XML"></div>
-                            <span>XML/LiveData</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/color/48/material-ui.png" alt="Material Design"></div>
-                            <span>Material Design</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- API & Backend -->
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>API & Backend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/color/48/cloud-sync.png" alt="Retrofit"></div>
-                            <span>Retrofit</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/fluency/48/api-settings.png" alt="OkHttp"></div>
-                            <span>OkHttp/Volley</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/fluency/48/api.png" alt="REST APIs"></div>
-                            <span>REST APIs</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" alt="FCM"></div>
-                            <span>FCM</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/color/48/google-maps-new.png" alt="Google Maps"></div>
-                            <span>Google Maps API</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud & Database -->
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Cloud & Database</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" alt="Firebase"></div>
-                            <span>Firebase Realtime DB</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" alt="Firestore"></div>
-                            <span>Firebase Firestore</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="rooomdb.png" alt="Room DB"></div>
-                            <span>Room DB</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://img.icons8.com/color/48/sql.png" alt="SQLite"></div>
-                            <span>SQLite</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tools -->
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Development Tools</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
-                            <span>Git/GitHub</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"></div>
-                            <span>Figma</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio"></div>
-                            <span>Android Studio</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"></div>
-                            <span>VS Code</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman"></div>
-                            <span>Postman</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section class="projects section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Some of my recent work and implementations</p>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- Project 1: CITYFLUX -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="cityflux.png" alt="CityFlux App" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>CityFlux - Smart Traffic & Parking App</h3>
-                        <p>
-                            Smart city mobility app with live congestion analytics, map-based traffic zones, parking discovery,
-                            citizen report tracking, and role-based dashboards for citizens and traffic officers in one Android experience.
-                        </p>
-                        <div class="project-tech">
-                            <span>Android</span>
-                            <span>Maps</span>
-                            <span>Traffic Analytics</span>
-                            <span>Parking</span>
-                            <span>Reports</span>
-                        </div>
-                        <a href="https://github.com/Huzaifpathan/CityFlux" class="project-btn" target="_blank" rel="noopener">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+                        <h2 class="hero-headline">
+                            Turning <span class="accent-text">data into insight</span> and AI into useful products.
+                        </h2>
 
-                <!-- Project 2: AGEWELL -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="agewell.png" alt="AGEWELL App" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>AGEWELL - Elder Care App</h3>
-                        <p>
-                            <strong>National Level Winner</strong> - Health monitoring app with SOS alerts, medication tracking, 
-                            and real-time hospital mapping using FCM, Firebase, and OpenStreetMap API. 
-                            Built with Kotlin, Java, and MVVM architecture.
+                        <p class="hero-bio">
+                            I use Python, statistics, and machine learning to solve practical problems—from data analysis and Power BI dashboards to computer vision, NLP, and AI-powered Android apps.
                         </p>
-                        <div class="project-tech">
-                            <span>Kotlin</span>
-                            <span>Firebase</span>
-                            <span>FCM</span>
-                            <span>MVVM</span>
-                            <span>Maps API</span>
-                        </div>
-                        <a href="https://github.com/VikasGholap06/WINGS-HACKATHON-CareCoders2025" class="project-btn" target="_blank" rel="noopener">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 3: SNAPEAT -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="snapeat.png" alt="SNAPEAT App" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>SNAPEAT - Nutrition Tracking App</h3>
-                        <p>
-                            AI-powered nutrition tracking app using Google ML Kit, Spoonacular API, USDA API, and OpenFoodFacts API. 
-                            Calculates protein, carbs, fat, and calories from food images or barcodes with meal planning and water tracking.
-                        </p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>Kotlin</span>
-                            <span>ML Kit</span>
-                            <span>Firebase</span>
-                            <span>REST APIs</span>
-                        </div>
-                        <a href="https://github.com/VikasGholap06/SnapEat" class="project-btn" target="_blank" rel="noopener">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 4: EMO-MIRROR -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="emomirror.png" alt="EMO-MIRROR App" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>EMO-MIRROR - Emotion Detection App</h3>
-                        <p>
-                            Real-time face emotion detection app using Java, Google ML Kit Vision API, and CameraX. 
-                            Features on-device secure analysis with confidence scoring, emotion breakdown, motivational tips, and progress visuals.
-                        </p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>ML Kit</span>
-                            <span>CameraX</span>
-                            <span>Vision API</span>
-                        </div>
-                        <a href="https://github.com/VikasGholap06/EmoMirror" class="project-btn" target="_blank" rel="noopener">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 5: STUD-HELPER -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="studehelper.png" alt="STUD-HELPER App" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>STUD-HELPER - Student Helper App</h3>
-                        <p>
-                            All-in-one student productivity app with resume builder, timetable manager, to-do lists, 
-                            note scanning with AI summarization via OpenRouter API, assignment tracking, reminders, and CGPA calculator.
-                        </p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>Firebase</span>
-                            <span>OpenRouter API</span>
-                            <span>OCR</span>
-                        </div>
-                        <a href="https://github.com/VikasGholap06/StudHelper" class="project-btn" target="_blank" rel="noopener">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="projects-cta">
-                <p>Want to see more of my work?</p>
-                <a href="https://github.com/VikasGholap06" class="btn btn-primary" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i> Visit My GitHub
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section class="experience section" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience & Learning</h2>
-                <p class="section-subtitle">My journey in software development</p>
-            </div>
-            
-            <div class="timeline">
-                <!-- Timeline Item 1: Training -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-briefcase"></i>
+                        <div class="hero-cta-group">
+                            <a href="#projects" class="btn btn-primary">
+                                <i class="fas fa-arrow-down"></i> View Featured Projects
+                            </a>
+                            <a href="Resume_Vikas_Gholap_DS.pdf" class="btn btn-secondary" download>
+                                <i class="fas fa-file-pdf"></i> Download Resume
+                            </a>
                         </div>
-                        <h3>Android Developer Training</h3>
-                        <span class="timeline-date">May 2023 - July 2023</span>
-                        <p>
-                            <strong>Mountreach Solutions PVT Ltd.</strong>, Amravati, India
-                        </p>
-                        <ul>
-                            <li>Explored Android SDK, local databases (SQLite, Room DB), and UI development with XML</li>
-                            <li>Learned Activity Lifecycle, Fragments, and UI Components</li>
-                            <li>Gained hands-on experience with API integration and Location Manager</li>
-                            <li>Developed Android applications to strengthen core development and debugging techniques</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>Android SDK</span>
-                            <span>SQLite</span>
-                            <span>Room DB</span>
-                            <span>XML</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Timeline Item 2: Achievements -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>Competitions & Achievements</h3>
-                        <span class="timeline-date">2023 - Present</span>
-                        <p>
-                            Recognized for excellence in Android development and innovation:
-                        </p>
-                        <ul>
-                            <li><strong>1st Place Winner</strong> - National Level Project Competition at Prof. Ram Meghe Institute of Technology and Research, Amravati (AgeWell App)</li>
-                            <li><strong>3rd Place Winner</strong> - Wings Hackathon at Government College of Engineering, Aurangabad</li>
-                            <li><strong>3rd Winner</strong> - Wings Innovex National Level Project Competition organized by GECA, Chhatrapati Sambhajinagar</li>
-                            <li>Android Developer Certification from Mountreach Solutions PVT Ltd.</li>
-                            <li>NPTEL Certification in Soft Skills</li>
-                            <li>Simplilearn SkillUp Certification in Power BI for Beginners</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>National Winner</span>
-                            <span>Hackathon Winner</span>
-                            <span>Innovex Winner</span>
-                            <span>3 Certifications</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Timeline Item 3: Education -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>Education Journey</h3>
-                        <span class="timeline-date">2021 - 2027</span>
-                        <p>
-                            Strong academic foundation in Computer Science and Engineering:
-                        </p>
-                        <ul>
-                            <li><strong>B.Tech CSE with Honours in AI-ML</strong> - Government College of Engineering, Chhatrapati Sambhajinagar (Pursuing CGPA: 9.187) - 2024-2027</li>
-                            <li><strong>Diploma IT</strong> - Government Polytechnic Ambad (92.94%) - 2021-2024</li>
-                            <li><strong>10th</strong> - Jijamata Vidyalay Pirkalyan, Jalna (84.20%) - 2021</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>B.Tech CSE</span>
-                            <span>Honours in AI-ML</span>
-                            <span>Pursuing CGPA 9.187</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's collaborate and build something amazing together</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. 
-                        Whether you want to collaborate or just say hi, feel free to reach out!
-                    </p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vikasbgholap27@gmail.com" target="_blank" rel="noopener">vikasbgholap27@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4>Phone</h4>
-                                <a href="tel:+918857978314">+91 8857978314</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Maharashtra, India</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
+                        <div class="hero-social-strip">
+                            <span class="hero-social-label">CONNECT:</span>
+                            <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
                                 <i class="fab fa-github"></i>
-                            </div>
-                            <div>
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener">github.com/vikasgholap</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/vikas-gholap/" target="_blank" rel="noopener">linkedin.com/in/vikasgholap</a>
-                            </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/vikas-gholap/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/VikasGholap06/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LeetCode Profile" title="LeetCode Profile">
+                                <i class="fas fa-code"></i>
+                            </a>
+                            <button class="social-icon-btn copy-email-trigger" title="Copy Email: vikasbgholap27@gmail.com" aria-label="Copy Email">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                            <a href="https://wa.me/918857978314" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp Contact">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/vikas-gholap/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vikasbgholap27@gmail.com" target="_blank" rel="noopener" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="tel:+918857978314" aria-label="Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
+
+                    <!-- Hero Right: Profile Showcase -->
+                    <div class="hero-visual reveal-init">
+                        <div class="profile-showcase">
+                            <div class="profile-backdrop-glow"></div>
+                            
+                            <!-- Floating Credential Chip Top -->
+                            <div class="credential-chip chip-top">
+                                <div class="chip-icon gold">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="chip-text">
+                                    <h5>3× Techfest Winner</h5>
+                                </div>
+                            </div>
+
+                            <!-- Photo Frame -->
+                            <div class="profile-frame">
+                                <div class="profile-img-inner">
+                                    <img src="profile.jpeg" alt="Vikas Gholap - Data Scientist and AI/ML Developer" width="400" height="500">
+                                </div>
+                            </div>
+
+                            <!-- Floating Credential Chip Bottom -->
+                            <div class="credential-chip chip-bottom">
+                                <div class="chip-icon indigo">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="chip-text">
+                                    <h5>9.12 / 10 CGPA</h5>
+                                    <p>B.Tech CSE (Honours in AI/ML)</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             PROOF OF WORK STRIP (METRIC HIGHLIGHTS)
+             ========================================================================== -->
+        <section class="proof-section" id="proof">
+            <div class="container">
+                <div class="metrics-strip reveal-init">
+                    <!-- Metric 1: LeetCode -->
+                    <a href="https://leetcode.com/u/VikasGholap06/" target="_blank" rel="noopener noreferrer" class="metric-card metric-card-link" aria-label="Open Vikas Gholap's LeetCode profile">
+                        <div class="metric-header">
+                            <i class="fas fa-code metric-icon"></i>
+                            <span class="metric-badge">DSA Mastery</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <div class="metric-value">500+</div>
+                        <div class="metric-label">DSA problems solved on platforms like LeetCode and GFG</div>
+                        <div class="metric-sublabel">Data Structures & Algorithms</div>
+                    </a>
+
+                    <!-- Metric 2: National Winner -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-award metric-icon" style="color: #f59e0b;"></i>
+                            <span class="metric-badge">3× Techfest Winner</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required placeholder="Project Collaboration">
+                        <div class="metric-value">3x TechFest Winner</div>
+                        <div class="metric-label">National Hackathons & Competitions</div>
+                        <div class="metric-sublabel">Hackathons + Competitions</div>
+                    </div>
+
+                    <!-- Metric 3: Academic CGPA -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-user-graduate metric-icon" style="color: #10b981;"></i>
+                            <span class="metric-badge">GECCS</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or idea..."></textarea>
+                        <div class="metric-value">9.12 / 10</div>
+                        <div class="metric-label">B.Tech CSE Honours Degree in AI & ML</div>
+                        <div class="metric-sublabel">Government College of Engineering, Chhatrapati Sambhajinagar</div>
+                    </div>
+
+                    <!-- Metric 4: Diploma Distinction -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-certificate metric-icon" style="color: #06b6d4;"></i>
+                            <span class="metric-badge">College Topper</span>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-envelope"></i> Send Email
-                        </button>
-                        
-                        <div class="form-message" id="formMessage"></div>
-                    </form>
+                        <div class="metric-value">92.94%</div>
+                        <div class="metric-label">Diploma in Information Technology</div>
+                        <div class="metric-sublabel">Govt. Polytechnic Ambad (MSBTE)</div>
+                    </div>
+
+                    <!-- Metric 5: Projects from Resume -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-briefcase metric-icon"></i>
+                            <span class="metric-badge">Experience</span>
+                        </div>
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Resume Projects</div>
+                        <div class="metric-sublabel">Data, NLP, CV & Android</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             ABOUT SECTION
+             ========================================================================== -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <i class="fas fa-terminal"></i> Engineering Profile
+                    </div>
+                    <h2 class="section-title">From data to decisions—and models to mobile apps.</h2>
+                    <p class="section-subtitle">
+                        Data science and applied AI, backed by the ability to ship ideas in real products.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Left: Narrative -->
+                    <div class="about-main-card reveal-init">
+                        <p class="about-paragraph">
+                            I am an aspiring <strong>Data Scientist</strong> based in Aurangabad, India, pursuing a <strong>B.Tech in Computer Science and Engineering with Honours in AI & ML</strong> at Government College of Engineering, Chhatrapati Sambhajinagar (CGPA: <strong>9.12 / 10</strong>).
+                        </p>
+                        <p class="about-paragraph">
+                            My focus is <strong>data analysis, statistical modeling, and machine learning</strong>. I use Python, Pandas, NumPy, SQL, and Power BI for analysis and dashboards, and apply computer vision and NLP with OpenCV, YOLO, BERT, and Transformers. I also build <strong>Android applications with Java and Kotlin</strong>, connecting models and data services to useful mobile experiences.
+                        </p>
+
+                        <div class="about-philosophy-box">
+                            <h4><i class="fas fa-lightbulb" style="color: #f59e0b;"></i> Engineering Philosophy</h4>
+                            <p>
+                                "Good analysis should lead to a clear decision. I care about sound data preparation, thoughtful model evaluation, and presenting results in a way that people can use—whether in a dashboard or a mobile app."
+                            </p>
+                        </div>
+
+                        <p class="about-paragraph">
+                            I have solved <strong>500+ DSA problems on Leetcode & GFG</strong> and built projects across analytics, NLP, computer vision, and Android. I am looking for <strong>Data Scientist or Machine Learning Engineer</strong> roles, with Android development as an additional strength.
+                        </p>
+                    </div>
+
+                    <!-- Right: Quick Facts Sidebar -->
+                    <div class="about-sidebar reveal-init">
+                        <div class="sidebar-card">
+                            <h4><i class="fas fa-fingerprint"></i> Core Highlights</h4>
+                            <div class="sidebar-facts-list">
+                                <div class="fact-item">
+                                    <i class="fas fa-map-marker-alt fact-icon"></i>
+                                    <div class="fact-text">
+                                        <h6>Location</h6>
+                                        <p>Aurangabad, Maharashtra, India</p>
+                                    </div>
+                                </div>
+
+                                <div class="fact-item">
+                                    <i class="fas fa-mobile-alt fact-icon"></i>
+                                    <div class="fact-text">
+                                        <h6>Primary Focus</h6>
+                                        <p>Data Science & Applied Machine Learning</p>
+                                    </div>
+                                </div>
+
+                                <div class="fact-item">
+                                    <i class="fas fa-laptop-code fact-icon"></i>
+                                    <div class="fact-text">
+                                        <h6>Algorithms & DSA</h6>
+                                        <p><a href="https://leetcode.com/u/VikasGholap06/" target="_blank" rel="noopener noreferrer">500+ problems · LeetCode & GFG</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="fact-item">
+                                    <i class="fas fa-university fact-icon"></i>
+                                    <div class="fact-text">
+                                        <h6>Education</h6>
+                                        <p>B.Tech CSE (AI/ML) · 9.12 / 10</p>
+                                    </div>
+                                </div>
+
+                                <div class="fact-item">
+                                    <i class="fas fa-check-circle fact-icon" style="color: #10b981;"></i>
+                                    <div class="fact-text">
+                                        <h6>Availability</h6>
+                                        <p>Full-Time & Internship Roles</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-card" style="background: var(--bg-surface-elevated);">
+                            <h4><i class="fas fa-bolt" style="color: #4976ad;"></i> Direct Contact</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                                Looking for a dedicated engineer who builds with care and precision?
+                            </p>
+                            <a href="#contact" class="btn btn-primary btn-sm" style="width: 100%;">
+                                <i class="fas fa-envelope"></i> Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             FEATURED PROJECTS SECTION
+             ========================================================================== -->
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="section-tag">
+                        <i class="fas fa-cube"></i> Data Science, AI/ML & Android
+                    </div>
+                    <h2 class="section-title">Selected Projects</h2>
+                    <p class="section-subtitle">
+                        Data analysis, NLP, computer vision, and Android applications built to solve practical problems.
+                    </p>
+                </div>
+
+                <!-- Project Filters -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects (6)</button>
+                    <button class="filter-btn" data-filter="flagship">Flagship / Award-Winning</button>
+                    <button class="filter-btn" data-filter="data-science">Data Science & NLP</button>
+                    <button class="filter-btn" data-filter="android">Android Systems</button>
+                    <button class="filter-btn" data-filter="ai-ml">AI & Computer Vision</button>
+                </div>
+
+                <!-- Projects Stack -->
+                <div class="projects-container">
+
+                    <!-- PROJECT 1: AGEWELL (Flagship - 1st Place National Winner) -->
+                    <article class="project-card-large reveal-init" data-category="flagship android">
+                        <div class="project-visual-pane">
+                            <div class="project-img-wrapper">
+                                <img src="agewell.png" alt="AgeWell Elder Care Application Screenshots" loading="lazy">
+                            </div>
+                        </div>
+
+                        <div class="project-content-pane">
+                            <div>
+                                <div class="project-award-badge">
+                                    <i class="fas fa-trophy"></i> 1st Place Winner — National Level Project Competition
+                                </div>
+                                <div class="project-category-tag">Android Systems · Healthcare Ecosystem · Cloud</div>
+                                <h3 class="project-title">AGEWELL — Elder Care Application</h3>
+                                <p class="project-summary">
+                                    Comprehensive elder health companion designed to resolve medical emergency latency and medication non-adherence. Features single-tap SOS panic broadcasting, scheduled medication alarms, and real-time hospital geolocation mapping.
+                                </p>
+                                <div class="project-contribution-box">
+                                    <strong>Engineering Contribution:</strong>
+                                    Architected the MVVM layer for predictable UI state flow, engineered FCM background push alert services for immediate caregiver dispatch, and integrated OpenStreetMap API with live geospatial hospital queries.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-pills">
+                                    <span class="tech-pill">Kotlin</span>
+                                    <span class="tech-pill">Java</span>
+                                    <span class="tech-pill">MVVM</span>
+                                    <span class="tech-pill">Firebase Firestore</span>
+                                    <span class="tech-pill">FCM</span>
+                                    <span class="tech-pill">OpenStreetMap API</span>
+                                    <span class="tech-pill">Room DB</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="btn btn-primary btn-sm" data-project-trigger="agewell">
+                                        <i class="fas fa-layer-group"></i> View Deep Dive & Architecture
+                                    </button>
+                                    <a href="https://github.com/VikasGholap06/AgeWell" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View AgeWell on GitHub">
+                                        <i class="fab fa-github"></i> Source Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 2: CITY-FLUX (Flagship - Real-world Distributed System) -->
+                    <article class="project-card-large reveal-init" data-category="flagship data-science android ai-ml">
+                        <div class="project-content-pane">
+                            <div>
+                                <div class="project-award-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.3);">
+                                    <i class="fas fa-traffic-light"></i> Real-World Distributed Mobility System
+                                </div>
+                                <div class="project-category-tag">Data Science · Computer Vision · Smart Mobility</div>
+                                <h3 class="project-title">CITY-FLUX — Smart Traffic & Parking Management System</h3>
+                                <p class="project-summary">
+                                    YOLO-based vehicle detection and OpenCV image processing turn traffic footage into structured vehicle counts and parking occupancy data. Firebase-backed dashboards, incident reports, and automated police assignment support live monitoring.
+                                </p>
+                                <div class="project-contribution-box">
+                                    <strong>Engineering Contribution:</strong>
+                                    Built the vehicle detection and image-processing workflow, then connected its outputs to real-time monitoring and incident-management features.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-pills">
+                                    <span class="tech-pill">Python</span>
+                                    <span class="tech-pill">OpenCV</span>
+                                    <span class="tech-pill">YOLO</span>
+                                    <span class="tech-pill">Firebase</span>
+                                    <span class="tech-pill">Java</span>
+                                    <span class="tech-pill">Kotlin</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="btn btn-primary btn-sm" data-project-trigger="cityflux">
+                                        <i class="fas fa-layer-group"></i> View Deep Dive & Architecture
+                                    </button>
+                                    <a href="https://github.com/Huzaifpathan/CityFlux" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View CityFlux on GitHub">
+                                        <i class="fab fa-github"></i> Source Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-visual-pane">
+                            <div class="project-img-wrapper">
+                                <img src="cityflux.png" alt="CityFlux Smart Traffic & Parking Screenshots" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 3: NEWS-CLASSIFICATION (BERT NLP) -->
+                    <article class="project-card-large reveal-init" data-category="data-science ai-ml">
+                        <div class="project-visual-pane">
+                            <!-- High-Tech Abstract Architecture Diagram for BERT -->
+                            <div class="bert-diagram-container">
+                                <div class="bert-diag-header">
+                                    <span><i class="fas fa-microchip"></i> BERT News Classification</span>
+                                    <span>Natural Language Processing</span>
+                                </div>
+                                <div class="bert-diag-pipeline">
+                                    <div class="diag-step">
+                                        <div class="diag-step-label"><i class="fas fa-file-alt"></i> AG News Dataset</div>
+                                        <span class="diag-step-value">News text and categories</span>
+                                    </div>
+                                    <div class="diag-step">
+                                        <div class="diag-step-label"><i class="fas fa-filter"></i> Data Preparation</div>
+                                        <span class="diag-step-value">Pandas + Scikit-learn</span>
+                                    </div>
+                                    <div class="diag-step step-transformer">
+                                        <div class="diag-step-label"><i class="fas fa-network-wired"></i> BERT Classifier</div>
+                                        <span class="diag-step-value">Context-aware text classification</span>
+                                    </div>
+                                    <div class="diag-step">
+                                        <div class="diag-step-label"><i class="fas fa-chart-bar"></i> Model Evaluation</div>
+                                        <span class="diag-step-value">Accuracy · Precision · Recall</span>
+                                    </div>
+                                    <div class="diag-step step-output">
+                                        <div class="diag-step-label"><i class="fas fa-check-circle"></i> Gradio Inference</div>
+                                        <span class="diag-step-value">Interactive predictions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content-pane">
+                            <div>
+                                <div class="project-award-badge" style="color: #829fc3; background: rgba(130, 159, 195, 0.12); border-color: rgba(130, 159, 195, 0.3);">
+                                    <i class="fas fa-project-diagram"></i> Natural Language Processing
+                                </div>
+                                <div class="project-category-tag">Data Science · NLP · Text Classification</div>
+                                <h3 class="project-title">NEWS CLASSIFICATION — BERT-Based NLP Model</h3>
+                                <p class="project-summary">
+                                    Prepared the AG News dataset with Pandas and Scikit-learn, trained a BERT-based text classifier, evaluated accuracy, precision, and recall, and built a Gradio interface for interactive inference.
+                                </p>
+                                <div class="project-contribution-box">
+                                    <strong>Engineering Contribution:</strong>
+                                    Took the project from data preparation through model evaluation and packaged predictions in a simple, interactive demo.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-pills">
+                                    <span class="tech-pill">Python</span>
+                                    <span class="tech-pill">Pandas</span>
+                                    <span class="tech-pill">Transformers</span>
+                                    <span class="tech-pill">BERT</span>
+                                    <span class="tech-pill">Scikit-Learn</span>
+                                    <span class="tech-pill">Gradio</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="btn btn-primary btn-sm" data-project-trigger="newsclass">
+                                        <i class="fas fa-layer-group"></i> View Deep Dive & Architecture
+                                    </button>
+                                    <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View GitHub profile">
+                                        <i class="fab fa-github"></i> GitHub Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 4: SNAPEAT (AI Nutrition Engine) -->
+                    <article class="project-card-large reveal-init" data-category="android ai-ml">
+                        <div class="project-visual-pane">
+                            <div class="project-img-wrapper">
+                                <img src="snapeat.png" alt="SnapEat AI Nutrition Tracking Screenshots" loading="lazy">
+                            </div>
+                        </div>
+
+                        <div class="project-content-pane">
+                            <div>
+                                <div class="project-award-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.12); border-color: rgba(52, 211, 153, 0.3);">
+                                    <i class="fas fa-bolt"></i> AI-Assisted Nutrition Tracking
+                                </div>
+                                <div class="project-category-tag">Android · Computer Vision · Nutrition Data</div>
+                                <h3 class="project-title">SNAPEAT — AI-Powered Nutrition Tracking</h3>
+                                <p class="project-summary">
+                                    AI-powered nutrition tracking combines food-image recognition, barcode scanning, and nutrition API data. Pandas and NumPy aggregate logged food data into daily summaries.
+                                </p>
+                                <div class="project-contribution-box">
+                                    <strong>Engineering Contribution:</strong>
+                                    Connected image and barcode recognition to nutrition data, then organized meal logs into clear daily nutrition summaries.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-pills">
+                                    <span class="tech-pill">Java</span>
+                                    <span class="tech-pill">Kotlin</span>
+                                    <span class="tech-pill">Google ML Kit</span>
+                                    <span class="tech-pill">CameraX</span>
+                                    <span class="tech-pill">Pandas</span>
+                                    <span class="tech-pill">NumPy</span>
+                                    <span class="tech-pill">Firebase</span>
+                                    <span class="tech-pill">REST APIs</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="btn btn-primary btn-sm" data-project-trigger="snapeat">
+                                        <i class="fas fa-layer-group"></i> View Deep Dive & Architecture
+                                    </button>
+                                    <a href="https://github.com/VikasGholap06/SnapEat" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View SnapEat on GitHub">
+                                        <i class="fab fa-github"></i> Source Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 5: EMO-MIRROR (Computer Vision Edge AI) -->
+                    <article class="project-card-large reveal-init" data-category="android ai-ml">
+                        <div class="project-content-pane">
+                            <div>
+                                <div class="project-award-badge" style="color: #8ca5c8; background: rgba(140, 165, 200, 0.12); border-color: rgba(140, 165, 200, 0.3);">
+                                    <i class="fas fa-brain"></i> On-Device Computer Vision
+                                </div>
+                                <div class="project-category-tag">Android · Computer Vision · Edge AI</div>
+                                <h3 class="project-title">EMO-MIRROR — Real-Time Facial Emotion Detection</h3>
+                                <p class="project-summary">
+                                    Android app that uses CameraX and Google ML Kit Vision for on-device facial emotion detection, with confidence scores, emotion breakdowns, and progress visuals.
+                                </p>
+                                <div class="project-contribution-box">
+                                    <strong>Engineering Contribution:</strong>
+                                    Built the camera-based analysis experience and visualized emotion results and progress directly in the app.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-pills">
+                                    <span class="tech-pill">Java</span>
+                                    <span class="tech-pill">Google ML Kit Vision</span>
+                                    <span class="tech-pill">CameraX</span>
+                                    <span class="tech-pill">SurfaceView Overlay</span>
+                                    <span class="tech-pill">Material 3</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="btn btn-primary btn-sm" data-project-trigger="emomirror">
+                                        <i class="fas fa-layer-group"></i> View Deep Dive & Architecture
+                                    </button>
+                                    <a href="https://github.com/VikasGholap06/EmoMirror" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View EmoMirror on GitHub">
+                                        <i class="fab fa-github"></i> Source Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-visual-pane">
+                            <div class="project-img-wrapper">
+                                <img src="emomirror.png" alt="EmoMirror Facial Emotion Detection Screenshots" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
+
+
+
+                    <!-- PROJECT 6: STUD-HELPER (Academic Productivity & LLM) -->
+                    <article class="project-card-large reveal-init" data-category="android ai-ml">
+                        <div class="project-content-pane">
+                            <div>
+                                <div class="project-award-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.3);">
+                                    <i class="fas fa-graduation-cap"></i> Generative AI Academic Suite
+                                </div>
+                                <div class="project-category-tag">Android · Generative AI · Cloud Services</div>
+                                <h3 class="project-title">STUD-HELPER — Student Productivity App</h3>
+                                <p class="project-summary">
+                                    All-in-one student workspace combining OCR lecture note digitizing with OpenRouter LLM summarization, dynamic professional resume generation, and semester CGPA calculation.
+                                </p>
+                                <div class="project-contribution-box">
+                                    <strong>Engineering Contribution:</strong>
+                                    Integrated OpenRouter LLM API for automated study summarization, architected Firebase sync for multi-device data backup, and engineered automated resume PDF export pipelines.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-pills">
+                                    <span class="tech-pill">Java</span>
+                                    <span class="tech-pill">Firebase</span>
+                                    <span class="tech-pill">OpenRouter API</span>
+                                    <span class="tech-pill">Android OCR</span>
+                                    <span class="tech-pill">PDF Generation</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="btn btn-primary btn-sm" data-project-trigger="studhelper">
+                                        <i class="fas fa-layer-group"></i> View Deep Dive & Architecture
+                                    </button>
+                                    <a href="https://github.com/VikasGholap06/StudHelper" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View StudHelper on GitHub">
+                                        <i class="fab fa-github"></i> Source Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-visual-pane">
+                            <div class="project-img-wrapper">
+                                <img src="studehelper.png" alt="StudHelper Academic Productivity Screenshots" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             EXPERIENCE SECTION (TIMELINE)
+             ========================================================================== -->
+        <section class="section experience-section" id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <i class="fas fa-history"></i> Career Timeline
+                    </div>
+                    <h2 class="section-title">Industry Experience</h2>
+                    <p class="section-subtitle">
+                        Android product development experience alongside data science and applied machine learning projects.
+                    </p>
+                </div>
+
+                <div class="experience-timeline reveal-init">
+                    <!-- Experience 1: Yug-Yatra Retail -->
+                    <div class="timeline-entry">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <h3 class="timeline-company">Yug-Yatra Retail Pvt. Ltd.</h3>
+                                <span class="timeline-date-pill">Feb 2026 — Apr 2026</span>
+                            </div>
+                            <div class="timeline-role-row">
+                                <span class="timeline-role-title">Software Developer Intern</span>
+                                <span class="timeline-location"><i class="fas fa-globe"></i> Remote</span>
+                            </div>
+                            <div class="timeline-bullets">
+                                <div class="timeline-bullet-item">
+                                    <i class="fas fa-chevron-right bullet-icon"></i>
+                                    <span>Developed and shipped Android application features using Kotlin, Jetpack Compose, and Firebase.</span>
+                                </div>
+                                <div class="timeline-bullet-item">
+                                    <i class="fas fa-chevron-right bullet-icon"></i>
+                                    <span>Built reusable Jetpack Compose UI components to improve consistency across modules.</span>
+                                </div>
+                                <div class="timeline-bullet-item">
+                                    <i class="fas fa-chevron-right bullet-icon"></i>
+                                    <span>Integrated Firebase Authentication, Firestore, and Cloud Storage for data sync and secure user sessions; improved performance through code and query refactoring.</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tech-pill">Kotlin</span>
+                                <span class="tech-pill">Jetpack Compose</span>
+                                <span class="tech-pill">Firebase</span>
+                                <span class="tech-pill">Firestore</span>
+                                <span class="tech-pill">Cloud Storage</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: Mountreach Solutions -->
+                    <div class="timeline-entry">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <h3 class="timeline-company">Mountreach Solutions Pvt. Ltd.</h3>
+                                <span class="timeline-date-pill">05/2023 — 07/2023</span>
+                            </div>
+                            <div class="timeline-role-row">
+                                <span class="timeline-role-title">Android Developer Trainee</span>
+                                <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Amravati, India</span>
+                            </div>
+                            <div class="timeline-bullets">
+                                <div class="timeline-bullet-item">
+                                    <i class="fas fa-chevron-right bullet-icon"></i>
+                                    <span>Trained in Android fundamentals, including Activities, Fragments, lifecycle management, and XML-based UI design.</span>
+                                </div>
+                                <div class="timeline-bullet-item">
+                                    <i class="fas fa-chevron-right bullet-icon"></i>
+                                    <span>Built sample applications with SQLite for local storage and structured queries.</span>
+                                </div>
+                                <div class="timeline-bullet-item">
+                                    <i class="fas fa-chevron-right bullet-icon"></i>
+                                    <span>Used REST APIs for network requests and Firebase for backend integration.</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tech-pill">Android SDK</span>
+                                <span class="tech-pill">XML</span>
+                                <span class="tech-pill">Java</span>
+                                <span class="tech-pill">SQLite</span>
+                                <span class="tech-pill">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TECHNICAL SKILLS MATRIX
+             ========================================================================== -->
+        <section class="section skills-section" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <i class="fas fa-cogs"></i> Technical Capabilities
+                    </div>
+                    <h2 class="section-title">Data Science & Engineering Toolkit</h2>
+                    <p class="section-subtitle">
+                        The languages, data tools, ML methods, and mobile technologies I use across my projects.
+                    </p>
+                </div>
+
+                <div class="skills-matrix reveal-init">
+                    <!-- Category 1: Languages -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="category-title">Programming Languages</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-badge featured"><i class="fab fa-java"></i> Java</span>
+                            <span class="skill-badge featured"><i class="fas fa-bolt"></i> Kotlin</span>
+                            <span class="skill-badge"><i class="fas fa-database"></i> SQL</span>
+                            <span class="skill-badge"><i class="fas fa-code"></i> C++</span>
+                            <span class="skill-badge"><i class="fab fa-php"></i> PHP</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Data Science & Analytics -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="category-title">Data Science & Analytics</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured">Pandas</span>
+                            <span class="skill-badge featured">NumPy</span>
+                            <span class="skill-badge featured">Scikit-learn</span>
+                            <span class="skill-badge">Matplotlib</span>
+                            <span class="skill-badge">Statistics & Hypothesis Testing</span>
+                            <span class="skill-badge">Exploratory Data Analysis</span>
+                            <span class="skill-badge">Feature Engineering</span>
+                            <span class="skill-badge">Data Mining & Warehousing</span>
+                            <span class="skill-badge">Data Modeling</span>
+                            <span class="skill-badge">ETL</span>
+                            <span class="skill-badge">Power BI · DAX · Power Query</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Android Ecosystem -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fab fa-android"></i>
+                            </div>
+                            <h3 class="category-title">Android Development</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured">Android SDK</span>
+                            <span class="skill-badge featured">Jetpack Compose</span>
+                            <span class="skill-badge featured">Kotlin Coroutines</span>
+                            <span class="skill-badge featured">MVVM Architecture</span>
+                            <span class="skill-badge">Room DB</span>
+                            <span class="skill-badge">LiveData</span>
+                            <span class="skill-badge">CameraX</span>
+                            <span class="skill-badge">XML</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: AI/ML -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="category-title">AI, Machine Learning & NLP</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured">Google ML Kit</span>
+                            <span class="skill-badge featured">OpenCV</span>
+                            <span class="skill-badge featured">YOLO</span>
+                            <span class="skill-badge featured">BERT & Transformers</span>
+                            <span class="skill-badge">Machine Learning</span>
+                            <span class="skill-badge">Natural Language Processing</span>
+                            <span class="skill-badge">Generative AI</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 5: API, Backend & Cloud -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3 class="category-title">Backend, APIs & Cloud</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured">Retrofit</span>
+                            <span class="skill-badge featured">Firebase Firestore</span>
+                            <span class="skill-badge featured">Realtime Database</span>
+                            <span class="skill-badge featured">FCM Push Alerts</span>
+                            <span class="skill-badge">REST APIs</span>
+                            <span class="skill-badge">OkHttp & Volley</span>
+                            <span class="skill-badge">Google Maps API</span>
+                            <span class="skill-badge">OpenStreetMap</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 6: Core Computer Science -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h3 class="category-title">Core Computer Science</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured">Data Structures & Algorithms</span>
+                            <span class="skill-badge featured">500+ LeetCode & GFG DSA problems Solved</span>
+                            <span class="skill-badge">OOP (Object-Oriented)</span>
+                            <span class="skill-badge">Database Management (DBMS)</span>
+                            <span class="skill-badge">Operating Systems</span>
+                            <span class="skill-badge">Computer Networks</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 7: Tools & Platforms -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-box">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="category-title">Tools & Collaboration</h3>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <span class="skill-badge featured"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="skill-badge featured"><i class="fab fa-github"></i> GitHub</span>
+                            <span class="skill-badge">Android Studio</span>
+                            <span class="skill-badge">Jupyter Notebook</span>
+                            <span class="skill-badge">Google Colab</span>
+                            <span class="skill-badge">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             ACHIEVEMENTS & EDUCATION SECTION
+             ========================================================================== -->
+        <section class="section achievements-section" id="achievements">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <i class="fas fa-award"></i> Pedigree & Recognition
+                    </div>
+                    <h2 class="section-title">Honors, Certifications & Academic Background</h2>
+                    <p class="section-subtitle">
+                        Project competition awards, industry certifications, and academic background.
+                    </p>
+                </div>
+
+                <div class="achievements-edu-grid reveal-init">
+                    <!-- Column 1: Honors & Certifications -->
+                    <div class="cards-column">
+                        <div class="column-header">
+                            <i class="fas fa-trophy column-header-icon" style="color: #f59e0b;"></i>
+                            <h3>Honors & Competitions</h3>
+                        </div>
+
+                        <!-- 1st Place National -->
+                        <div class="award-card winner-gold">
+                            <div class="award-top">
+                                <span class="award-place-badge badge-gold">🥇 1st Place Winner</span>
+                                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">National Level</span>
+                            </div>
+                            <h4 class="award-title">National Level Project Competition</h4>
+                            <p class="award-org">
+                                Organized by Prof. Ram Meghe Institute of Technology and Research (PRMITR), Amravati. Awarded 1st place for developing the <strong>AgeWell Elder Care Application</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Wings Hackathon -->
+                        <div class="award-card">
+                            <div class="award-top">
+                                <span class="award-place-badge badge-bronze">🥉 3rd Place Winner</span>
+                                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Hackathon</span>
+                            </div>
+                            <h4 class="award-title">Wings Hackathon</h4>
+                            <p class="award-org">
+                                Organized by Government College of Engineering Aurangabad (GECA), Chhatrapati Sambhajinagar.
+                            </p>
+                        </div>
+
+                        <!-- Wings Innovex -->
+                        <div class="award-card">
+                            <div class="award-top">
+                                <span class="award-place-badge badge-bronze">🥉 3rd Place Winner</span>
+                                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">National Project Competition</span>
+                            </div>
+                            <h4 class="award-title">Wings Innovex Project Competition</h4>
+                            <p class="award-org">
+                                National-Level Project Competition organized by GECA, Chhatrapati Sambhajinagar.
+                            </p>
+                        </div>
+
+                        <!-- Certifications Card -->
+                        <div class="award-card" style="border-color: var(--border-subtle);">
+                            <div class="award-top">
+                                <span class="award-place-badge badge-cert"><i class="fas fa-certificate"></i> Credentials</span>
+                            </div>
+                            <h4 class="award-title" style="margin-top: 0.5rem;">Certifications</h4>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li><i class="fas fa-check" style="color: #4976ad; margin-right: 0.4rem;"></i> <strong>NPTEL:</strong> Deep Learning for Natural Language Processing</li>
+                                <li><i class="fas fa-check" style="color: #4976ad; margin-right: 0.4rem;"></i> <strong>NPTEL:</strong> Soft Skills</li>
+                                <li><i class="fas fa-check" style="color: #4976ad; margin-right: 0.4rem;"></i> <strong>Simplilearn | SkillUp:</strong> Power BI for Beginners</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Academic Pedigree -->
+                    <div class="cards-column">
+                        <div class="column-header">
+                            <i class="fas fa-graduation-cap column-header-icon" style="color: #10b981;"></i>
+                            <h3>Academic Background</h3>
+                        </div>
+
+                        <!-- B.Tech Degree -->
+                        <div class="edu-card" style="border-left: 3px solid var(--accent-primary);">
+                            <h4 class="edu-degree">Bachelor of Technology (B.Tech)</h4>
+                            <div class="edu-honours">Computer Science and Engineering with Honours in AI & ML</div>
+                            <div class="edu-institution">Government College of Engineering, Chhatrapati Sambhajinagar (GECA)</div>
+                            <div class="edu-meta-row">
+                                <span class="edu-score-pill">CGPA: 9.12 / 10</span>
+                                <span class="edu-date"><i class="far fa-calendar-alt"></i> 2024 — 2027</span>
+                            </div>
+                        </div>
+
+                        <!-- Diploma -->
+                        <div class="edu-card" style="border-left: 3px solid #06b6d4;">
+                            <h4 class="edu-degree">Diploma in Information Technology</h4>
+                            <div class="edu-honours" style="color: #06b6d4;">Engineering Diploma</div>
+                            <div class="edu-institution">Government Polytechnic Ambad, Maharashtra, India</div>
+                            <div class="edu-meta-row">
+                                <span class="edu-score-pill" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4; border-color: rgba(6, 182, 212, 0.3);">Distinction: 92.94%</span>
+                                <span class="edu-date"><i class="far fa-calendar-alt"></i> 2021 — 2024</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             CONTACT & RECRUITER CTA SECTION
+             ========================================================================== -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="contact-card-wrap reveal-init">
+                    <!-- Left: Contact Details & Recruiter Pitch -->
+                    <div class="contact-info-side">
+                        <div class="section-tag" style="margin-bottom: 0.75rem;">
+                            <i class="fas fa-paper-plane"></i> Let's Connect
+                        </div>
+                        <h3>Have an ambitious product or engineering challenge? Let's build something meaningful.</h3>
+                        <p class="contact-pitch">
+                            I am interested in <strong>Data Science</strong>, <strong>Machine Learning / AI</strong>, and <strong>Android development</strong> opportunities. If you are building a data-driven product or team, I'd love to connect.
+                        </p>
+
+                        <div class="contact-details-list">
+                            <!-- Email -->
+                            <div class="contact-row-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h6>Email Address</h6>
+                                    <div>
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vikasbgholap27@gmail.com" target="_blank" rel="noopener noreferrer">
+                                            vikasbgholap27@gmail.com
+                                        </a>
+                                        <button class="copy-email-btn copy-email-trigger" title="Copy to clipboard">
+                                            <i class="far fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="contact-row-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h6>Phone & WhatsApp</h6>
+                                    <a href="tel:+918857978314">+91 8857978314</a>
+                                </div>
+                            </div>
+
+                            <!-- LinkedIn -->
+                            <div class="contact-row-item">
+                                <div class="contact-item-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h6>LinkedIn Profile</h6>
+                                    <a href="https://www.linkedin.com/in/vikas-gholap/" target="_blank" rel="noopener noreferrer">
+                                        linkedin.com/in/vikas-gholap
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- LeetCode -->
+                            <div class="contact-row-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h6>LeetCode Profile</h6>
+                                    <a href="https://leetcode.com/u/VikasGholap06/" target="_blank" rel="noopener noreferrer">
+                                        leetcode.com/u/VikasGholap06
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- GitHub -->
+                            <div class="contact-row-item">
+                                <div class="contact-item-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h6>GitHub Repositories</h6>
+                                    <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener noreferrer">
+                                        github.com/VikasGholap06
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="Resume_Vikas_Gholap_DS.pdf" class="btn btn-secondary" download>
+                                <i class="fas fa-download"></i> Download Resume (PDF)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Quick Message Form -->
+                    <div class="contact-form-side">
+                        <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary);">
+                            Send a Direct Message
+                        </h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            Dispatches directly to my inbox with one click.
+                        </p>
+
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label" for="formName">YOUR NAME</label>
+                                <input type="text" id="formName" class="form-input" placeholder="e.g. Alex Miller" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="formEmail">YOUR WORK EMAIL</label>
+                                <input type="email" id="formEmail" class="form-input" placeholder="e.g. alex@company.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="formSubject">SUBJECT</label>
+                                <input type="text" id="formSubject" class="form-input" placeholder="e.g. Data Science or AI/ML Opportunity" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="formMessage">MESSAGE</label>
+                                <textarea id="formMessage" class="form-textarea" placeholder="Tell me about the role, technical challenge, or project..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="formSubmitBtn" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Message Directly
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         PROJECT DEEP DIVE MODAL
+         ========================================================================== -->
+    <div class="modal-overlay" id="projectModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-dialog">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Project Modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-body">
+                <div class="modal-header-tag" id="modalCategory">Category</div>
+                <h3 class="modal-title" id="modalTitle">Project Title</h3>
+                <div class="project-award-badge" id="modalBadge" style="margin-bottom: 1.5rem;">Badge</div>
+
+                <!-- Visual / Diagram Placeholder -->
+                <div id="modalVisualBox" style="margin-bottom: 1.5rem;"></div>
+
+                <!-- Problem Statement -->
+                <div class="modal-section">
+                    <h4><i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i> The Problem</h4>
+                    <p id="modalProblem">Problem statement...</p>
+                </div>
+
+                <!-- Architecture & Solution -->
+                <div class="modal-section">
+                    <h4><i class="fas fa-cogs" style="color: #4976ad;"></i> Solution & Architecture</h4>
+                    <p id="modalSolution" style="margin-bottom: 0.75rem;">Solution overview...</p>
+                    <p id="modalArchitecture">Technical architecture...</p>
+                </div>
+
+                <!-- Key Engineering Challenges -->
+                <div class="modal-section">
+                    <h4><i class="fas fa-wrench" style="color: #10b981;"></i> Key Engineering Challenges Solved</h4>
+                    <ul id="modalChallengesList">
+                        <!-- Populated dynamically -->
+                    </ul>
+                </div>
+
+                <!-- Technologies Used -->
+                <div class="modal-section">
+                    <h4><i class="fas fa-microchip" style="color: #06b6d4;"></i> Technologies & Frameworks</h4>
+                    <div class="modal-tech-list" id="modalTechList">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="modal-footer">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modalGithubBtn">
+                        <i class="fab fa-github"></i> Inspect GitHub Repository
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; <span id="year"></span> Vikas Gholap. All rights reserved.</p>
-                <p>Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+        <i class="fas fa-check-circle toast-icon"></i>
+        <span id="toastMessage">Email copied to clipboard!</span>
+    </div>
+
+    <!-- Back to Top Floating Button -->
+    <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top" style="position: fixed; bottom: 2rem; left: 2rem; z-index: 990; opacity: 0; pointer-events: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span style="font-family: var(--font-heading); font-weight: 700; color: var(--text-primary);">Vikas Gholap</span>
+                <p>&copy; <span id="currentYear"></span> Vikas Gholap. Built with modern web standards, semantic HTML, and zero bloat.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home" class="footer-link">Top</a>
+                <a href="#projects" class="footer-link">Projects</a>
+                <a href="#experience" class="footer-link">Experience</a>
+                <a href="#contact" class="footer-link">Contact</a>
+                <a href="https://github.com/VikasGholap06" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vikas-gholap/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://leetcode.com/u/VikasGholap06/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LeetCode"><i class="fas fa-code"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Custom JavaScript -->
+    <!-- Custom Interaction Controller -->
     <script src="script.js"></script>
 </body>
 </html>

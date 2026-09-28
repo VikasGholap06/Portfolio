@@ -1,513 +1,556 @@
-// ================================================
-// VIKAS GHOLAP - PORTFOLIO JAVASCRIPT
-// Interactive Features & Animations
-// ================================================
+/**
+ * ==========================================================================
+ * VIKAS GHOLAP — PORTFOLIO INTERACTION CONTROLLER
+ * High-Performance, Accessible, Zero Bloat Vanilla JavaScript
+ * ==========================================================================
+ */
 
-// ============= FLOATING PARTICLES =============
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    if (!particlesContainer) return;
-    
-    const particleCount = 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        // Random properties
-        const size = Math.random() * 4 + 2;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
-        const opacity = Math.random() * 0.5 + 0.1;
-        
-        particle.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 50%;
-            left: ${posX}%;
-            top: ${posY}%;
-            opacity: ${opacity};
-            animation: particleFloat ${duration}s ease-in-out ${delay}s infinite;
-            pointer-events: none;
-        `;
-        
-        particlesContainer.appendChild(particle);
+// --- PROJECT DEEP DIVE DATA REPOSITORY ---
+const PROJECTS_DATA = {
+    agewell: {
+        title: "AGEWELL — Elder Care Application",
+        badge: "🏆 1st Place Winner — National Level Project Competition",
+        category: "Android Systems · Healthcare · Cloud Infrastructure",
+        image: "agewell.png",
+        summary: "An award-winning elder health monitoring and emergency dispatch Android ecosystem developed with Kotlin and Java under MVVM architecture, ensuring high-reliability medical tracking and instant emergency alerting.",
+        problem: "Elderly seniors living independently face heightened risks during unexpected medical emergencies, struggle to adhere to complex medication schedules, and experience friction finding nearby specialized geriatric medical services quickly.",
+        solution: "Built a native Android solution with single-tap emergency SOS broadcasting via Firebase Cloud Messaging (FCM), automated local alarm-triggered medication schedules with adherence logging, and integrated OpenStreetMap API for low-latency live geolocation routing to hospitals.",
+        architecture: "Engineered with MVVM (Model-View-ViewModel) architecture. Local persistence is managed via Room DB with Coroutines for asynchronous, non-blocking UI transactions. Background services handle medication reminders, while FCM coordinates cloud push notifications between seniors and registered emergency caregivers.",
+        challenges: [
+            "Making SOS alerts and medication reminders easy for older adults to use.",
+            "Connecting hospital locations with real-time map data.",
+            "Keeping application data and notifications in sync through Firebase."
+        ],
+        technologies: ["Kotlin", "Java", "MVVM", "Firebase Firestore", "FCM Push Notifications", "OpenStreetMap API", "Room DB", "Coroutines"],
+        github: "https://github.com/VikasGholap06/AgeWell"
+    },
+
+    cityflux: {
+        title: "CITY-FLUX — Smart Traffic & Parking Management",
+        badge: "🚦 Real-World Distributed Mobility System",
+        category: "Data Science · Computer Vision · Smart Mobility",
+        image: "cityflux.png",
+        summary: "A smart traffic and parking management system that uses YOLO-based vehicle detection and OpenCV image processing to produce structured vehicle counts and parking occupancy data.",
+        problem: "Traffic and parking teams need timely, structured information to monitor vehicle flow, spot occupancy, and respond to incidents.",
+        solution: "Applied YOLO vehicle detection and OpenCV image processing to generate vehicle-count and parking-occupancy data. Added incident reporting, automated police assignment, and Firebase-backed dashboards for live monitoring.",
+        architecture: "The project combines a Python computer-vision workflow with a Firebase-backed application for monitoring, incident reports, and police assignment.",
+        challenges: [
+            "Turning vehicle detections into useful counts and parking-occupancy data.",
+            "Connecting traffic monitoring with incident reporting and police assignment.",
+            "Presenting updates in a live Firebase-backed dashboard."
+        ],
+        technologies: ["Python", "YOLO", "OpenCV", "Firebase", "Java", "Kotlin"],
+        github: "https://github.com/Huzaifpathan/CityFlux"
+    },
+
+    snapeat: {
+        title: "SNAPEAT — AI-Powered Nutrition Tracking App",
+        badge: "🥗 Edge AI & Nutrition Intelligence",
+        category: "Android · Machine Learning · Mobile API Integration",
+        image: "snapeat.png",
+        summary: "An AI-powered nutrition app combining image-based food recognition, barcode scanning, and nutrition API integration. Pandas and NumPy aggregate logged food data into daily summaries.",
+        problem: "Nutrition tracking can require repeated manual entry and make it difficult to see daily food totals at a glance.",
+        solution: "Built food-image recognition and barcode scanning into a mobile nutrition app, connected it to nutrition APIs, and summarized logged data with Pandas and NumPy.",
+        architecture: "The Android app combines Java and Kotlin with Google ML Kit, Firebase, and REST API integrations. Logged food data is aggregated for daily summaries.",
+        challenges: [
+            "Connecting image recognition and barcode scans with nutrition API results.",
+            "Organizing meal logs into clear daily nutrition summaries.",
+            "Combining data summaries with a simple Android tracking experience."
+        ],
+        technologies: ["Java", "Kotlin", "Google ML Kit", "Firebase", "REST APIs", "Pandas", "NumPy"],
+        github: "https://github.com/VikasGholap06/SnapEat"
+    },
+
+    emomirror: {
+        title: "EMO-MIRROR — Real-Time Facial Emotion Detection",
+        badge: "🧠 On-Device Computer Vision & Sentiment",
+        category: "Android · Computer Vision · Edge AI",
+        image: "emomirror.png",
+        summary: "An Android facial emotion detection and mood-tracking app built with CameraX and Google ML Kit Vision, with confidence scoring, emotion breakdowns, and progress visuals.",
+        problem: "The app explores how a mobile camera experience can present facial emotion analysis and mood history in an accessible way.",
+        solution: "Built an on-device facial emotion analysis experience with Java, CameraX, and Google ML Kit Vision, then presented results through confidence scores, emotion breakdowns, and progress visuals.",
+        challenges: [
+            "Presenting camera-based analysis results clearly in the Android UI.",
+            "Organizing emotion confidence scores into a readable breakdown.",
+            "Showing progress over time in the app."
+        ],
+        technologies: ["Java", "Google ML Kit Vision API", "CameraX", "SurfaceView Overlay", "Material Design 3", "SharedPreferences"],
+        github: "https://github.com/VikasGholap06/EmoMirror"
+    },
+
+    newsclass: {
+        title: "NEWS-CLASSIFICATION — BERT-Based NLP Pipeline",
+        badge: "⚡ Transformer NLP & Deep Learning",
+        category: "Data Science · NLP · Text Classification",
+        isBertDiagram: true,
+        summary: "A BERT-based news-classification project using the AG News dataset, with data preparation, model evaluation, and a Gradio interface for interactive inference.",
+        problem: "Sorting news articles by topic is a useful NLP task that needs both a trained text model and a way to review its predictions.",
+        solution: "Prepared the AG News dataset with Pandas and Scikit-learn, trained a BERT-based classifier, evaluated accuracy, precision, and recall, and built a Gradio inference interface.",
+        challenges: [
+            "Preparing text data for the BERT classification workflow.",
+            "Reviewing model results with accuracy, precision, and recall.",
+            "Making model predictions accessible through an interactive Gradio interface."
+        ],
+        technologies: ["Python", "Pandas", "Scikit-Learn", "BERT", "Transformers", "Gradio"],
+        github: "https://github.com/VikasGholap06",
+        githubLabel: "View GitHub Profile"
+    },
+
+    studhelper: {
+        title: "STUD-HELPER — Academic Productivity & AI Suite",
+        badge: "🎓 LLM-Powered Student Suite",
+        category: "Android · Generative AI · Cloud Services",
+        image: "studehelper.png",
+        summary: "An integrated academic utility platform uniting optical character recognition (OCR) note digitizing, OpenRouter generative LLM summarization, dynamic LaTeX/PDF resume building, and CGPA projection engines.",
+        problem: "Students frequently rely on disjointed, ad-hoc apps for class timetable schedules, assignment tracking, OCR note transcription, GPA calculation, and resume formatting.",
+        solution: "Engineered a single high-performance Android application providing OCR note scanning with AI-generated executive summaries via OpenRouter LLM API, alongside an interactive semester CGPA calculator and automated resume generator.",
+        challenges: [
+            "Optimizing OCR image pre-processing (binarization and contrast enhancement) for handwritten lecture notes.",
+            "Streaming OpenRouter LLM responses smoothly into the Android UI without freezing the main thread.",
+            "Designing a flexible CGPA computation engine accommodating varying credit distribution systems."
+        ],
+        technologies: ["Java", "Firebase", "OpenRouter LLM API", "Android OCR Engine", "Camera API", "PDF Generation"],
+        github: "https://github.com/VikasGholap06/StudHelper"
     }
-}
+};
 
-// Add particle animation keyframes
-const particleStyles = document.createElement('style');
-particleStyles.textContent = `
-    @keyframes particleFloat {
-        0%, 100% {
-            transform: translate(0, 0) rotate(0deg);
-            opacity: 0.3;
-        }
-        25% {
-            transform: translate(30px, -30px) rotate(90deg);
-            opacity: 0.6;
-        }
-        50% {
-            transform: translate(-20px, 20px) rotate(180deg);
-            opacity: 0.3;
-        }
-        75% {
-            transform: translate(20px, 30px) rotate(270deg);
-            opacity: 0.5;
-        }
+// --- DOM INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initNavbarScroll();
+    initMobileMenu();
+    initProjectFilters();
+    initProjectModal();
+    initEmailCopy();
+    initContactForm();
+    initScrollReveal();
+    initDynamicYear();
+    initSmoothAnchors();
+});
+
+// ==========================================================================
+// THEME MANAGEMENT (DARK-MODE FIRST)
+// ==========================================================================
+function initTheme() {
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('vg_theme') || 'dark';
+
+    htmlEl.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlEl.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('vg_theme', nextTheme);
+            updateThemeIcon(nextTheme);
+        });
     }
-`;
-document.head.appendChild(particleStyles);
-
-// Initialize particles
-createParticles();
-
-// ============= THEME TOGGLE =============
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
-
-// Check for saved theme preference or default to dark
-const currentTheme = localStorage.getItem('theme') || 'dark';
-html.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const theme = html.getAttribute('data-theme');
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-        
-        // Add theme transition effect
-        document.body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
-    });
 }
 
 function updateThemeIcon(theme) {
-    const themeIcon = document.querySelector('#themeToggle i');
-    if (themeIcon) {
+    const icon = document.querySelector('#themeToggleBtn i');
+    if (icon) {
         if (theme === 'dark') {
-            themeIcon.className = 'fas fa-moon';
+            icon.className = 'fas fa-moon';
         } else {
-            themeIcon.className = 'fas fa-sun';
+            icon.className = 'fas fa-sun';
         }
     }
 }
 
-// ============= MOBILE MENU =============
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const navMenu = document.getElementById('navMenu');
+// ==========================================================================
+// NAVBAR SCROLL & ACTIVE TRACKING
+// ==========================================================================
+function initNavbarScroll() {
+    const header = document.getElementById('siteHeader');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-item');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const backToTopBtn = document.getElementById('backToTopBtn');
 
-if (mobileMenuToggle && navMenu) {
-    mobileMenuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenuToggle.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-}
-
-// ============= NAVBAR SCROLL EFFECT =============
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
-if (navbar) {
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        const scrollY = window.pageYOffset;
+
+        // Navbar background shadow
+        if (header) {
+            if (scrollY > 30) {
+                header.style.borderBottomColor = 'var(--border-hover)';
+            } else {
+                header.style.borderBottomColor = 'var(--border-subtle)';
+            }
         }
-        
-        lastScroll = currentScroll;
-    });
-}
 
-// ============= ACTIVE NAVIGATION LINK =============
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
+        // Back to top button visibility
+        if (backToTopBtn) {
+            if (scrollY > 450) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.pointerEvents = 'auto';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.pointerEvents = 'none';
+            }
+        }
 
-function updateActiveNav() {
-    const scrollPosition = window.pageYOffset + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        // Active Section Highlight
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        if (currentSectionId) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+            mobileLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
                     link.classList.add('active');
                 }
             });
         }
-    });
+    }, { passive: true });
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 }
 
-window.addEventListener('scroll', updateActiveNav);
-window.addEventListener('load', updateActiveNav);
+// ==========================================================================
+// MOBILE MENU CONTROLLER
+// ==========================================================================
+function initMobileMenu() {
+    const toggleBtn = document.getElementById('mobileMenuToggle');
+    const drawer = document.getElementById('mobileNavDrawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-// ============= SMOOTH SCROLL =============
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const offsetTop = target.offsetTop - 70; // Account for navbar height
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+    if (!toggleBtn || !drawer) return;
 
-// ============= BACK TO TOP BUTTON =============
-const backToTopBtn = document.getElementById('backToTop');
-
-if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 500) {
-            backToTopBtn.classList.add('show');
+    toggleBtn.addEventListener('click', () => {
+        const isActive = drawer.classList.contains('active');
+        if (isActive) {
+            closeMobileMenu();
         } else {
-            backToTopBtn.classList.remove('show');
+            openMobileMenu();
         }
     });
 
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+
+    function openMobileMenu() {
+        drawer.classList.add('active');
+        toggleBtn.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        drawer.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+}
+
+// ==========================================================================
+// PROJECT FILTER TABS
+// ==========================================================================
+function initProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card-large');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const selectedFilter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category') || '';
+                if (selectedFilter === 'all' || categories.includes(selectedFilter)) {
+                    card.style.display = 'grid';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 20);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 250);
+                }
+            });
         });
     });
 }
 
-// ============= CONTACT FORM HANDLING =============
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+// ==========================================================================
+// INTERACTIVE PROJECT DEEP DIVE MODAL
+// ==========================================================================
+function initProjectModal() {
+    const modalOverlay = document.getElementById('projectModalOverlay');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const triggerButtons = document.querySelectorAll('[data-project-trigger]');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Show loading state
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Create Gmail compose URL (more reliable than mailto)
-            const recipientEmail = 'vikasbgholap27@gmail.com';
-            const emailSubject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
-            const emailBody = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`);
-            
-            // Use Gmail compose URL - works more reliably
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${emailSubject}&body=${emailBody}`;
-            
-            // Open Gmail in new tab
-            window.open(gmailUrl, '_blank');
-            
-            // Success message
-            showMessage('success', 'Gmail opened in a new tab! Please send the email. Thank you for reaching out!');
-            contactForm.reset();
-            
-        } catch (error) {
-            showMessage('error', 'Oops! Something went wrong. Please try again or email me directly at vikasbgholap27@gmail.com');
-            console.error('Form submission error:', error);
-        } finally {
-            // Reset button
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-        }
-    });
-}
+    if (!modalOverlay) return;
 
-function showMessage(type, message) {
-    if (formMessage) {
-        formMessage.textContent = message;
-        formMessage.className = `form-message ${type}`;
-        
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-            formMessage.className = 'form-message';
-        }, 5000);
-    }
-}
-
-// ============= SCROLL ANIMATIONS =============
-// Intersection Observer for scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-on-scroll');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all sections and cards
-document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll(`
-        .hero-text > *,
-        .about-card,
-        .info-card,
-        .skill-category,
-        .project-card,
-        .timeline-item,
-        .contact-info,
-        .contact-form-wrapper
-    `);
-    
-    elementsToAnimate.forEach(el => observer.observe(el));
-});
-
-// ============= TYPING EFFECT (Optional Enhancement) =============
-// Uncomment this section if you want a typing effect on the hero title
-/*
-const titleElement = document.querySelector('.hero-title .gradient-text');
-const titleText = titleElement.textContent;
-titleElement.textContent = '';
-
-let charIndex = 0;
-function typeText() {
-    if (charIndex < titleText.length) {
-        titleElement.textContent += titleText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeText, 100);
-    }
-}
-
-// Start typing effect after page loads
-window.addEventListener('load', () => {
-    setTimeout(typeText, 500);
-});
-*/
-
-// ============= DYNAMIC YEAR IN FOOTER =============
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// ============= PRELOADER (Optional) =============
-// Uncomment if you add a preloader to your HTML
-/*
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }
-});
-*/
-
-// ============= PARTICLES BACKGROUND (Optional Enhancement) =============
-// You can add particles.js library for a cool background effect
-// Add this script tag in your HTML: <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-/*
-if (typeof particlesJS !== 'undefined') {
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: '#6366f1' },
-            shape: { type: 'circle' },
-            opacity: { value: 0.5, random: false },
-            size: { value: 3, random: true },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: '#6366f1',
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 2,
-                direction: 'none',
-                random: false,
-                straight: false,
-                out_mode: 'out',
-                bounce: false
+    // Trigger Modal Open
+    triggerButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = btn.getAttribute('data-project-trigger');
+            const data = PROJECTS_DATA[projectId];
+            if (data) {
+                renderModalContent(data);
+                openModal();
             }
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onhover: { enable: true, mode: 'repulse' },
-                onclick: { enable: true, mode: 'push' },
-                resize: true
-            }
-        },
-        retina_detect: true
+        });
     });
-}
-*/
 
-// ============= CONSOLE MESSAGE =============
-console.log('%c👋 Hello There!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-console.log('%cVikas Gholap - Portfolio Website', 'color: #8b5cf6; font-size: 16px;');
-console.log('%cBuilt with ❤️ using HTML, CSS & JavaScript', 'color: #9ca3af; font-size: 14px;');
-console.log('%cInterested in the code? Check out my GitHub!', 'color: #6366f1; font-size: 14px;');
-
-// ============= PERFORMANCE MONITORING (Optional) =============
-// Log page load time
-window.addEventListener('load', () => {
-    const loadTime = window.performance.timing.domContentLoadedEventEnd - 
-                     window.performance.timing.navigationStart;
-    console.log(`%c⚡ Page loaded in ${loadTime}ms`, 'color: #10b981; font-size: 12px;');
-});
-
-// ============= ACCESSIBILITY ENHANCEMENTS =============
-// Skip to main content (if you add a skip link in HTML)
-document.addEventListener('keydown', (e) => {
-    // Press '/' to focus on navigation
-    if (e.key === '/' && !e.target.matches('input, textarea')) {
-        e.preventDefault();
-        const firstNavLink = document.querySelector('.nav-link');
-        if (firstNavLink) firstNavLink.focus();
+    // Close handlers
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeModal);
     }
-});
 
-// ============= SCROLL REVEAL ANIMATIONS =============
-const scrollRevealOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            // Add stagger delay based on element index
-            setTimeout(() => {
-                entry.target.classList.add('revealed');
-            }, index * 100);
-            scrollObserver.unobserve(entry.target);
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
         }
     });
-}, scrollRevealOptions);
 
-// Observe elements for scroll animation
-document.querySelectorAll('.skill-category, .project-card, .timeline-item, .info-card, .contact-item').forEach((el, index) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    scrollObserver.observe(el);
-});
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            closeModal();
+        }
+    });
 
-// Add revealed class styles
-const style = document.createElement('style');
-style.textContent = `
-    .revealed {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+    function openModal() {
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
-`;
-document.head.appendChild(style);
 
-// ============= TYPING EFFECT FOR HERO (Optional) =============
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    heroTitle.style.opacity = '0';
-    setTimeout(() => {
-        heroTitle.style.transition = 'opacity 1s ease';
-        heroTitle.style.opacity = '1';
-    }, 500);
+    function closeModal() {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function renderModalContent(data) {
+        document.getElementById('modalCategory').textContent = data.category;
+        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalBadge').textContent = data.badge;
+        document.getElementById('modalProblem').textContent = data.problem;
+        document.getElementById('modalSolution').textContent = data.solution;
+        document.getElementById('modalArchitecture').textContent = data.architecture;
+
+        // Visual preview
+        const visualBox = document.getElementById('modalVisualBox');
+        if (data.isBertDiagram) {
+            visualBox.innerHTML = `
+                <div class="bert-diagram-container" style="max-width: 600px; margin: 0 auto;">
+                    <div class="bert-diag-header">
+                        <span><i class="fas fa-microchip"></i> BERT News Classification</span>
+                        <span>Natural Language Processing</span>
+                    </div>
+                    <div class="bert-diag-pipeline">
+                        <div class="diag-step">
+                            <div class="diag-step-label"><i class="fas fa-file-alt"></i> AG News Dataset</div>
+                            <span class="diag-step-value">News text and categories</span>
+                        </div>
+                        <div class="diag-step">
+                            <div class="diag-step-label"><i class="fas fa-filter"></i> Data Preparation</div>
+                            <span class="diag-step-value">Pandas + Scikit-learn</span>
+                        </div>
+                        <div class="diag-step step-transformer">
+                            <div class="diag-step-label"><i class="fas fa-network-wired"></i> BERT Classifier</div>
+                            <span class="diag-step-value">Context-aware text classification</span>
+                        </div>
+                        <div class="diag-step">
+                            <div class="diag-step-label"><i class="fas fa-chart-bar"></i> Model Evaluation</div>
+                            <span class="diag-step-value">Accuracy · Precision · Recall</span>
+                        </div>
+                        <div class="diag-step step-output">
+                            <div class="diag-step-label"><i class="fas fa-check-circle"></i> Gradio Inference</div>
+                            <span class="diag-step-value">Interactive predictions</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            visualBox.innerHTML = `
+                <div style="text-align: center; background: #000; border-radius: var(--radius-md); padding: 1rem; border: 1px solid var(--border-subtle); max-height: 380px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                    <img src="${data.image}" alt="${data.title}" style="max-height: 340px; width: auto; object-fit: contain; border-radius: 8px;">
+                </div>
+            `;
+        }
+
+        // Challenges list
+        const challengesList = document.getElementById('modalChallengesList');
+        challengesList.innerHTML = data.challenges.map(item => `<li>${item}</li>`).join('');
+
+        // Tech pills
+        const techList = document.getElementById('modalTechList');
+        techList.innerHTML = data.technologies.map(tech => `<span class="tech-pill">${tech}</span>`).join('');
+
+        // Links
+        const githubBtn = document.getElementById('modalGithubBtn');
+        githubBtn.href = data.github;
+        githubBtn.innerHTML = `<i class="fab fa-github"></i> ${data.githubLabel || 'View Source Code'}`;
+    }
 }
 
-// ============= SCROLL PROGRESS INDICATOR =============
-const progressBar = document.createElement('div');
-progressBar.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
-    z-index: 9999;
-    transition: width 0.1s ease;
-    border-radius: 0 2px 2px 0;
-`;
-document.body.appendChild(progressBar);
+// ==========================================================================
+// ONE-CLICK EMAIL COPY & TOAST NOTIFICATION
+// ==========================================================================
+function initEmailCopy() {
+    const copyBtns = document.querySelectorAll('.copy-email-trigger');
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
 
-window.addEventListener('scroll', () => {
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (window.scrollY / windowHeight) * 100;
-    progressBar.style.width = scrolled + '%';
-});
+    const EMAIL = 'vikasbgholap27@gmail.com';
 
-// ============= SMOOTH CURSOR GLOW EFFECT =============
-const cursorGlow = document.createElement('div');
-cursorGlow.style.cssText = `
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-`;
-document.body.appendChild(cursorGlow);
-
-document.addEventListener('mousemove', (e) => {
-    cursorGlow.style.left = e.clientX + 'px';
-    cursorGlow.style.top = e.clientY + 'px';
-    cursorGlow.style.opacity = '1';
-});
-
-document.addEventListener('mouseleave', () => {
-    cursorGlow.style.opacity = '0';
-});
-
-// ============= ERROR HANDLING =============
-window.addEventListener('error', (e) => {
-    console.error('An error occurred:', e.message);
-});
-
-// ============= SERVICE WORKER (PWA Support - Optional) =============
-/*
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered:', registration);
-            })
-            .catch(error => {
-                console.log('SW registration failed:', error);
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(EMAIL).then(() => {
+                showToast(`✓ Copied ${EMAIL} to clipboard!`);
+            }).catch(() => {
+                showToast(`Email: ${EMAIL}`);
             });
+        });
+    });
+
+    function showToast(msg) {
+        if (!toast || !toastMsg) return;
+        toastMsg.textContent = msg;
+        toast.classList.add('active');
+
+        setTimeout(() => {
+            toast.classList.remove('active');
+        }, 3500);
+    }
+}
+
+// ==========================================================================
+// CONTACT FORM HANDLER
+// ==========================================================================
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('formSubmitBtn');
+
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('formName').value.trim();
+        const email = document.getElementById('formEmail').value.trim();
+        const subject = document.getElementById('formSubject').value.trim();
+        const message = document.getElementById('formMessage').value.trim();
+
+        if (!name || !email || !message) {
+            alert('Please fill in your name, email, and message.');
+            return;
+        }
+
+        // Show loading state
+        if (submitBtn) {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing Dispatch...';
+            submitBtn.disabled = true;
+        }
+
+        const encodedSubject = encodeURIComponent(`Portfolio Inquiry from ${name}: ${subject || 'Collaboration'}`);
+        const encodedBody = encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\n\nProject / Inquiry Details:\n${message}\n\n--- Sent via Vikas Gholap Portfolio Contact Form ---`);
+        const recipient = 'vikasbgholap27@gmail.com';
+
+        // Prefer direct Gmail compose tab
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodedSubject}&body=${encodedBody}`;
+        
+        // Open Gmail compose in new tab
+        window.open(gmailUrl, '_blank');
+
+        setTimeout(() => {
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Email Dispatch Ready!';
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message Directly';
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 3000);
+            }
+        }, 800);
     });
 }
-*/
+
+// ==========================================================================
+// SCROLL REVEAL (INTERSECTION OBSERVER)
+// ==========================================================================
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-init');
+
+    if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+}
+
+// ==========================================================================
+// DYNAMIC FOOTER YEAR
+// ==========================================================================
+function initDynamicYear() {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}
+
+// ==========================================================================
+// SMOOTH ANCHOR SCROLL
+// ==========================================================================
+function initSmoothAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const offset = target.offsetTop - 70;
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
